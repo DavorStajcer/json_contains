@@ -1,3 +1,7 @@
+## 1.0.2
+
+- Format files better
+
 ## 1.0.1
 
 - Add [JsonContainsListBehavior] description in Readme file
