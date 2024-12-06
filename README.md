@@ -77,10 +77,10 @@ For example, the following will be true:
 
 ##  My real usecase
 
-I needed this in an IoT project, here was my usecase:
+I needed this in an IoT project, here was my use case:
 - mobile app is connected to a socket
 - IoT device is connected to a socket
-- mobile app sends a "desired state chage" update to the socket
+- mobile app sends a "desired state change" update to the socket
 - IoT device picks up that change
 - IoT device sends the "change in its current state" to the socket all the time
 - In order for the app to "know" the IoT device is has changed to the desired state it needs to check if the 
