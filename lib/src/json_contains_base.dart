@@ -61,7 +61,12 @@ _throwIfNotAllWantedReceived(
   for (var e in jsonToContain.keys) {
     final containValue = jsonToContain[e];
     final value = json[e];
-    _compareJsonValues(key: e, value: value, containValue: containValue, listBehavior: listBehavior);
+    _compareJsonValues(
+      key: e,
+      value: value,
+      containValue: containValue,
+      listBehavior: listBehavior,
+    );
   }
 }
 
@@ -73,12 +78,21 @@ _compareJsonValues({
 }) {
   if (containValue is Map<String, dynamic>) {
     /// We want to allow the type cast to throw - this is the expected behavior as we throw if values are not equal.
-    _throwIfNotAllWantedReceived(value as Map<String, dynamic>, containValue, listBehavior);
+    _throwIfNotAllWantedReceived(
+      value as Map<String, dynamic>,
+      containValue,
+      listBehavior,
+    );
     return;
   }
   if (containValue is List<dynamic>) {
     /// We want to allow the type cast to throw - this is the expected behavior as we throw if values are not equal.
-    _onJsonListValue(key, value as List<dynamic>, containValue, listBehavior);
+    _onJsonListValue(
+      key,
+      value as List<dynamic>,
+      containValue,
+      listBehavior,
+    );
     return;
   }
   if (containValue != value) {
@@ -109,7 +123,9 @@ _throwIfNotSameLenght(
 ) {
   if (value.length != containValue.length) {
     final forKey = key == null ? '' : ' for key: $key';
-    throw Exception('When comparing two lists$forKey, the lenghts are not the same - wanted: ${containValue.length}, received: ${value.length}');
+    throw Exception(
+      'When comparing two lists$forKey, the lenghts are not the same - wanted: ${containValue.length}, received: ${value.length}',
+    );
   }
 }
 
@@ -121,7 +137,12 @@ void _compareJsonListInOrder(
 ) {
   for (var (i, containValue) in containList.indexed) {
     final value = list[i];
-    _compareJsonValues(key: key, value: value, containValue: containValue, listBehavior: listBehavior);
+    _compareJsonValues(
+      key: key,
+      value: value,
+      containValue: containValue,
+      listBehavior: listBehavior,
+    );
   }
 }
 
@@ -134,7 +155,9 @@ void _compareJsonList(
   for (var containValue in containList) {
     final isContained = _listContainsValue(list, containValue, listBehavior);
     if (!isContained) {
-      throw Exception('Not all wanted values received - wanted: $containValue, received: $list');
+      throw Exception(
+        'Not all wanted values received - wanted: $containValue, received: $list',
+      );
     }
   }
 }
@@ -153,9 +176,18 @@ bool _listContainsValue(
   return false;
 }
 
-bool _isListItemEqual(value, containValue, JsonContainsListBehavior listBehavior) {
+bool _isListItemEqual(
+  value,
+  containValue,
+  JsonContainsListBehavior listBehavior,
+) {
   try {
-    _compareJsonValues(key: null, value: value, containValue: containValue, listBehavior: listBehavior);
+    _compareJsonValues(
+      key: null,
+      value: value,
+      containValue: containValue,
+      listBehavior: listBehavior,
+    );
     return true;
   } catch (e) {
     return false;

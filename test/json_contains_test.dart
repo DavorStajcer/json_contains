@@ -3,7 +3,9 @@ import 'package:test/test.dart';
 
 void main() {
   group('jsonContains', () {
-    test('Default behaviour: returns true when lists have same elements in different order', () {
+    test(
+        'Default behaviour: returns true when lists have same elements in different order',
+        () {
       final json = {
         "name": "John",
         "skills": ["Dart", "Flutter", "React"],
@@ -31,7 +33,9 @@ void main() {
       expect(jsonContains(json: json, jsonToContain: jsonToContain), isTrue);
     });
 
-    test('Default behaviour: returns true when jsonToContain has fewer list elements', () {
+    test(
+        'Default behaviour: returns true when jsonToContain has fewer list elements',
+        () {
       final json = {
         "skills": ["Dart", "Flutter", "React", "Python"],
       };
@@ -57,7 +61,9 @@ void main() {
   });
 
   group('When compareOrder is set to true', () {
-    test('compareOrder: true: returns true when list elements are in the same order', () {
+    test(
+        'compareOrder: true: returns true when list elements are in the same order',
+        () {
       final json = {
         "skills": ["Dart", "Flutter", "React"],
       };
@@ -69,12 +75,17 @@ void main() {
       final listBehaviour = JsonContainsListBehavior(compareOrder: true);
 
       expect(
-        jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+        jsonContains(
+            json: json,
+            jsonToContain: jsonToContain,
+            listBehavior: listBehaviour),
         isTrue,
       );
     });
 
-    test('compareOrder: true: returns false when list elements are in a different order', () {
+    test(
+        'compareOrder: true: returns false when list elements are in a different order',
+        () {
       final json = {
         "skills": ["Dart", "Flutter", "React"],
       };
@@ -86,14 +97,19 @@ void main() {
       final listBehaviour = JsonContainsListBehavior(compareOrder: true);
 
       expect(
-        jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+        jsonContains(
+            json: json,
+            jsonToContain: jsonToContain,
+            listBehavior: listBehaviour),
         isFalse,
       );
     });
   });
 
   group('When compareLenght is set to true', () {
-    test('compareLenght: true: returns true when list elements are in the same order', () {
+    test(
+        'compareLenght: true: returns true when list elements are in the same order',
+        () {
       final json = {
         "skills": ["Dart", "Flutter"],
       };
@@ -105,12 +121,17 @@ void main() {
       final listBehaviour = JsonContainsListBehavior(compareLenght: true);
 
       expect(
-        jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+        jsonContains(
+            json: json,
+            jsonToContain: jsonToContain,
+            listBehavior: listBehaviour),
         isTrue,
       );
     });
 
-    test('compareLenght: true: returns false when list elements are in a different order', () {
+    test(
+        'compareLenght: true: returns false when list elements are in a different order',
+        () {
       final json = {
         "skills": ["Flutter", "Dart", "React"],
       };
@@ -122,14 +143,19 @@ void main() {
       final listBehaviour = JsonContainsListBehavior(compareLenght: true);
 
       expect(
-        jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+        jsonContains(
+            json: json,
+            jsonToContain: jsonToContain,
+            listBehavior: listBehaviour),
         isFalse,
       );
     });
   });
 
   group('When both compareOrder and compareLenght is set to true', () {
-    test('compareOrder: true and compareLenght: true: returns true when both order and length match', () {
+    test(
+        'compareOrder: true and compareLenght: true: returns true when both order and length match',
+        () {
       final json = {
         "skills": ["Dart", "Flutter", "React"],
       };
@@ -138,15 +164,21 @@ void main() {
         "skills": ["Dart", "Flutter", "React"]
       };
 
-      final listBehaviour = JsonContainsListBehavior(compareOrder: true, compareLenght: true);
+      final listBehaviour =
+          JsonContainsListBehavior(compareOrder: true, compareLenght: true);
 
       expect(
-        jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+        jsonContains(
+            json: json,
+            jsonToContain: jsonToContain,
+            listBehavior: listBehaviour),
         isTrue,
       );
     });
 
-    test('compareOrder: true and compareLenght: true: returns false when order does not match', () {
+    test(
+        'compareOrder: true and compareLenght: true: returns false when order does not match',
+        () {
       final json = {
         "skills": ["Dart", "React", "Flutter"],
       };
@@ -155,15 +187,21 @@ void main() {
         "skills": ["Dart", "Flutter", "React"]
       };
 
-      final listBehaviour = JsonContainsListBehavior(compareOrder: true, compareLenght: true);
+      final listBehaviour =
+          JsonContainsListBehavior(compareOrder: true, compareLenght: true);
 
       expect(
-        jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+        jsonContains(
+            json: json,
+            jsonToContain: jsonToContain,
+            listBehavior: listBehaviour),
         isFalse,
       );
     });
 
-    test('compareOrder: true and compareLenght: true: returns false when length does not match', () {
+    test(
+        'compareOrder: true and compareLenght: true: returns false when length does not match',
+        () {
       final json = {
         "skills": ["Dart", "Flutter", "React"],
       };
@@ -172,10 +210,14 @@ void main() {
         "skills": ["Dart", "Flutter"]
       };
 
-      final listBehaviour = JsonContainsListBehavior(compareOrder: true, compareLenght: true);
+      final listBehaviour =
+          JsonContainsListBehavior(compareOrder: true, compareLenght: true);
 
       expect(
-        jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+        jsonContains(
+            json: json,
+            jsonToContain: jsonToContain,
+            listBehavior: listBehaviour),
         isFalse,
       );
     });
@@ -183,7 +225,9 @@ void main() {
 
   group('jsonContains with deeply nested JSON objects', () {
     group('Default behaviour (ignores order and length)', () {
-      test('returns true when lists of JSON objects contain other lists with JSON objects in any order', () {
+      test(
+          'returns true when lists of JSON objects contain other lists with JSON objects in any order',
+          () {
         final json = {
           "company": {
             "departments": [
@@ -331,7 +375,10 @@ void main() {
         final listBehaviour = JsonContainsListBehavior(compareOrder: true);
 
         expect(
-          jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+          jsonContains(
+              json: json,
+              jsonToContain: jsonToContain,
+              listBehavior: listBehaviour),
           isTrue,
         );
       });
@@ -376,7 +423,10 @@ void main() {
         final listBehaviour = JsonContainsListBehavior(compareOrder: true);
 
         expect(
-          jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+          jsonContains(
+              json: json,
+              jsonToContain: jsonToContain,
+              listBehavior: listBehaviour),
           isFalse,
         );
       });
@@ -422,14 +472,19 @@ void main() {
         final listBehaviour = JsonContainsListBehavior(compareLenght: true);
 
         expect(
-          jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+          jsonContains(
+              json: json,
+              jsonToContain: jsonToContain,
+              listBehavior: listBehaviour),
           isFalse,
         );
       });
     });
 
     group('With compareOrder: true and compareLenght: true', () {
-      test('returns true when both order and length match in deeply nested lists', () {
+      test(
+          'returns true when both order and length match in deeply nested lists',
+          () {
         final json = {
           "organization": {
             "departments": [
@@ -466,10 +521,14 @@ void main() {
           }
         };
 
-        final listBehaviour = JsonContainsListBehavior(compareOrder: true, compareLenght: true);
+        final listBehaviour =
+            JsonContainsListBehavior(compareOrder: true, compareLenght: true);
 
         expect(
-          jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+          jsonContains(
+              json: json,
+              jsonToContain: jsonToContain,
+              listBehavior: listBehaviour),
           isTrue,
         );
       });
@@ -508,10 +567,14 @@ void main() {
           }
         };
 
-        final listBehaviour = JsonContainsListBehavior(compareOrder: true, compareLenght: true);
+        final listBehaviour =
+            JsonContainsListBehavior(compareOrder: true, compareLenght: true);
 
         expect(
-          jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
+          jsonContains(
+              json: json,
+              jsonToContain: jsonToContain,
+              listBehavior: listBehaviour),
           isFalse,
         );
       });
