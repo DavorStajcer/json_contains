@@ -1,3 +1,7 @@
+## 1.0.3
+
+- Export [JsonContainsMapExtension]
+
 ## 1.0.2
 
 - Format files better
