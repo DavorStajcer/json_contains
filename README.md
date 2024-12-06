@@ -75,6 +75,42 @@ For example, the following will be true:
   print(result); // true
 ```
 
+
+
+You can modify this behavior with `JsonContainsListBehavior` by setting  `compareOrder`/`compareLenght` to `true`
+
+```dart
+final  json  = {
+"skills": ["Dart", "Flutter", "React"],
+};
+final  jsonToContain  = {
+"skills": ["Flutter", "Dart"]
+};
+
+final  listBehaviour  =  JsonContainsListBehavior(compareOrder:  true);
+
+final  result  =  jsonContains(json:  json, jsonToContain:  jsonToContain, listBehavior:  listBehaviour);
+
+print(result); // false
+```
+
+```dart
+final  json  = {
+"skills": ["Flutter", "Dart", "React"],
+};
+
+final  jsonToContain  = {
+"skills": ["Flutter", "Dart"]
+};
+
+final  listBehaviour  =  JsonContainsListBehavior(compareLenght:  true);
+
+final  result  =  jsonContains(json:  json, jsonToContain:  jsonToContain, listBehavior:  listBehaviour);
+
+print(result); // false
+```
+
+
 ##  My real usecase
 
 I needed this in an IoT project, here was my use case:
