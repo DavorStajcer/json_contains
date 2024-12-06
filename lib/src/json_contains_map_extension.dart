@@ -1,7 +1,7 @@
-import 'package:json_contains/json_contains.dart' as jc;
+import 'package:json_contains/src/json_contains_base.dart';
 
 extension JsonContainsMapExtension on Map<String, dynamic> {
-  bool containsJson(Map<String, dynamic> jsonToContain) => jc.jsonContains(
+  bool containsJson(Map<String, dynamic> jsonToContain) => jsonContains(
         json: this,
         jsonToContain: jsonToContain,
       );
