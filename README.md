@@ -26,7 +26,7 @@ print(result); // true
 ```
 
 
-**Lsit behavior**
+## [..] Lsit behavior
 
 By default when two lists are compared:
 - lenght of the lists is not compared
@@ -75,7 +75,7 @@ For example, the following will be true:
   print(result); // true
 ```
 
-**My real usecase**
+## My real usecase
 
 I needed this in an IoT project, here was my usecase:
 - mobile app is connected to a socket
