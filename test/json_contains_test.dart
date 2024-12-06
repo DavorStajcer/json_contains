@@ -93,16 +93,16 @@ void main() {
   });
 
   group('When compareLenght is set to true', () {
-    test('compareOrder: true: returns true when list elements are in the same order', () {
+    test('compareLenght: true: returns true when list elements are in the same order', () {
       final json = {
-        "skills": ["Dart", "Flutter", "React"],
+        "skills": ["Dart", "Flutter"],
       };
 
       final jsonToContain = {
         "skills": ["Dart", "Flutter"]
       };
 
-      final listBehaviour = JsonContainsListBehavior(compareOrder: true);
+      final listBehaviour = JsonContainsListBehavior(compareLenght: true);
 
       expect(
         jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
@@ -110,16 +110,16 @@ void main() {
       );
     });
 
-    test('compareOrder: true: returns false when list elements are in a different order', () {
+    test('compareLenght: true: returns false when list elements are in a different order', () {
       final json = {
-        "skills": ["Dart", "Flutter", "React"],
+        "skills": ["Flutter", "Dart", "React"],
       };
 
       final jsonToContain = {
         "skills": ["Flutter", "Dart"]
       };
 
-      final listBehaviour = JsonContainsListBehavior(compareOrder: true);
+      final listBehaviour = JsonContainsListBehavior(compareLenght: true);
 
       expect(
         jsonContains(json: json, jsonToContain: jsonToContain, listBehavior: listBehaviour),
