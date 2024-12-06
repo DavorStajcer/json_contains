@@ -1,6 +1,6 @@
 name: json_contains
 description: A library for checking if a JSON object contains another JSON object.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/DavorStajcer/json_contains
 
 environment:
