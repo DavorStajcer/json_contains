@@ -1,7 +1,7 @@
 ## Table of Contents
 - [About](#-about)
-- [List behavior](#-list-behavior)
-- [My real usecase](#-usage)
+- [List behavior](#-[...]-list-behavior)
+- [My real usecase](#-my-real-usecase)
 
 ##  🚀 About
 
@@ -26,7 +26,7 @@ print(result); // true
 ```
 
 
-## [..] Lsit behavior
+## [...] List behavior
 
 By default when two lists are compared:
 - lenght of the lists is not compared
