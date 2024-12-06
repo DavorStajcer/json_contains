@@ -31,11 +31,9 @@ import 'package:json_contains/json_contains.dart';
 ///
 /// [listBehavior] defines the behavior when comparing if a JSON list contains another JSON list.
 ///
-/// By default:
-///
-/// - order of items in the list does not matter
-///
-/// - the lenght of the list does not matter
+/// By default when two lists are compared:
+/// - lenght of the lists is not compared
+/// - ordering of items is not compared
 bool jsonContains({
   required Map<String, dynamic> json,
   required Map<String, dynamic> jsonToContain,
