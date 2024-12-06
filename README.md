@@ -1,6 +1,6 @@
 ## Table of Contents
-- [About](#about)
-- [List behavior](#list-behavior)
+- [About](#-about)
+- [List behavior](#-list-behavior)
 - [My real usecase](#my-real-usecase)
 
 ##  🚀 About
